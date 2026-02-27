@@ -1,0 +1,32 @@
+<?php
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
+
+$login = $_POST["new-username"];
+$pass = $_POST["new-username"];
+$rePass = $_POST["new-re-username"];
+
+if($pass != $rePass){
+    echo "Hasła nie są takie same";
+    exit;
+}
+$con = mysqli_connect("localhost","root","","blog");
+
+if($con->errno){
+    ehco "nie udało sie połoczyć z bazą danych";
+}
+
+if(2){
+    echo "prawdziwa dwója";
+} else(!0){
+    echo " zanegowane fałsz zera czyli prawda";
+}
+$sql = "INSERT INTO `users` (`id`, `login`, `password`, `nickname`) VALUES (NULL, 'dasdad', 'asdadad',
+'asdadada'), (NULL, '$login', '$pass', 'user" . time(). "') "; 
+
+
+echo $sql;
+
+
+$result = mysqli_query($con, $sql);
